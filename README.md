@@ -185,4 +185,3 @@ MIT
 
 ---
 
-**Autor:** [Dein Name] · [github.com/dein-username](https://github.com/dein-username)
