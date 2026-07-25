@@ -1,0 +1,30 @@
+# Secrets
+.env
+.env.local
+*.key
+
+# Checkpoints & Outputs
+*.sqlite
+*.sqlite-*
+automation_analysis.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
