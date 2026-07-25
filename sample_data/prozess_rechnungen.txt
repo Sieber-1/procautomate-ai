@@ -1,0 +1,26 @@
+Prozessbeschreibung: Monatliche Lieferanten-Rechnungsverarbeitung
+
+Aktueller manueller Ablauf:
+
+1. Jeden Monat gehen ca. 200 Lieferantenrechnungen als PDF per E-Mail ein.
+   Eine Mitarbeiterin oeffnet jede E-Mail einzeln und speichert die PDF-Anhaenge
+   in einem Netzlaufwerk-Ordner ab.
+
+2. Aus jeder PDF werden manuell folgende Daten in eine Excel-Tabelle uebertragen:
+   Lieferantenname, Rechnungsnummer, Rechnungsdatum, Betrag netto, MwSt, Betrag brutto,
+   Faelligkeitsdatum. Das dauert pro Rechnung etwa 4 Minuten.
+
+3. Die Excel-Tabelle wird mit den offenen Bestellungen im SAP-System abgeglichen.
+   Stimmen Rechnungsbetrag und Bestellbetrag ueberein, wird die Rechnung zur
+   Zahlung freigegeben. Bei Abweichungen wird eine E-Mail an den Einkauf geschickt.
+
+4. Am Monatsende wird aus der Excel-Tabelle ein Report erstellt, der die Summe
+   aller Rechnungen pro Lieferant und die durchschnittliche Bearbeitungszeit zeigt.
+   Dieser Report geht per E-Mail an die Abteilungsleitung.
+
+Probleme:
+- Die manuelle Dateneingabe ist fehleranfaellig (Zahlendreher).
+- Die Bearbeitung dauert insgesamt ca. 15 Stunden pro Monat.
+- Bei Urlaub der zustaendigen Mitarbeiterin bleiben Rechnungen liegen.
+
+Ziel: Moeglichst viele dieser Schritte automatisieren.

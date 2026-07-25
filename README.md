@@ -182,3 +182,7 @@ procautomate-ai/
 ## 📄 Lizenz
 
 MIT
+
+---
+
+**Autor:** [Dein Name] · [github.com/dein-username](https://github.com/dein-username)

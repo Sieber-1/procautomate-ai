@@ -1,0 +1,22 @@
+# Core: LangGraph + LangChain (Versionen gepinnt fuer Reproduzierbarkeit)
+langgraph>=1.2.0,<2.0
+langchain>=0.3.0
+langchain-anthropic>=0.3.0
+langchain-openai>=0.2.0
+
+# MCP: Model Context Protocol Integration
+langchain-mcp-adapters>=0.3.0
+mcp>=1.0.0
+
+# Checkpointing (State-Persistenz)
+langgraph-checkpoint-sqlite>=2.0.0
+
+# UI
+streamlit>=1.32.0
+
+# Config
+python-dotenv>=1.0.0
+
+# Tests
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
