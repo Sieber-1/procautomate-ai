@@ -77,7 +77,7 @@ Ein Iterations-Zähler im State verhindert Endlosschleifen zwischen Supervisor u
 
 ```bash
 # 1. Repository klonen
-git clone https://github.com/DEIN-USERNAME/procautomate-ai.git
+git clone https://github.com/Sieber-1/procautomate-ai.git
 cd procautomate-ai
 
 # 2. Virtuelle Umgebung
