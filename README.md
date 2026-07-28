@@ -8,13 +8,13 @@ Beschreibe einen manuellen Geschäftsprozess in natürlicher Sprache. Ein Team s
 
 ## 🎯 Das Problem
 
-Unternehmen automatisieren tausende Prozesse (RPA, ETL, Skripting). Der teuerste Schritt ist nicht das Programmieren — es ist die **Analyse**: Welche Schritte lohnt es zu automatisieren? Mit welcher Technologie? Was ist der ROI? Diese Vorarbeit macht heute ein Mensch manuell für jeden einzelnen Use Case.
+Unternehmen automatisieren tausende Prozesse (RPA, ETL, Skripting). Der teuerste Schritt ist nicht das Programmieren es ist die **Analyse**: Welche Schritte lohnt es zu automatisieren? Mit welcher Technologie? Was ist der ROI? Diese Vorarbeit macht heute ein Mensch manuell für jeden einzelnen Use Case.
 
 ProcAutomate-AI automatisiert diese Analyse selbst. Aus einer Prozessbeschreibung entsteht in unter zwei Minuten ein strukturierter Automatisierungs-Vorschlag mit Skript-Gerüsten und ROI-Rechnung.
 
 ## 🏗 Architektur
 
-Das System nutzt das **Supervisor-Pattern** aus LangGraph — dieselbe Architektur, die u.a. LinkedIn 2026 für seine AI-Workflows dokumentiert hat.
+Das System nutzt das **Supervisor-Pattern** aus LangGraph, dieselbe Architektur, die u.a. LinkedIn 2026 für seine AI-Workflows dokumentiert hat.
 
 ```
                     ┌─────────────────┐
@@ -44,7 +44,7 @@ Das System nutzt das **Supervisor-Pattern** aus LangGraph — dieselbe Architekt
 3. **Automation Agent** — generiert lauffähige Python- und PowerShell-Skript-Gerüste
 4. **QA Agent** — prüft Abdeckung, Qualität und Deployment-Bereitschaft
 
-**Der Supervisor** ist ein LLM, das ausschließlich routet — es führt selbst keine Tools aus. Nach jedem Worker kehrt der Fluss zum Supervisor zurück, der über den nächsten Schritt entscheidet.
+**Der Supervisor** ist ein LLM, das ausschließlich routet, es führt selbst keine Tools aus. Nach jedem Worker kehrt der Fluss zum Supervisor zurück, der über den nächsten Schritt entscheidet.
 
 ## 🔑 Zentrale technische Konzepte
 
@@ -54,13 +54,13 @@ Diese vier Dinge unterscheiden das Projekt von einem einfachen Agent-Loop:
 Statt einer linearen Kette wird der Workflow als **gerichteter Graph** modelliert. Nodes sind Agenten, Edges sind Übergänge. Der Graph unterstützt Zyklen (Worker → Supervisor → Worker), konditionales Routing und paralleles Fan-out.
 
 **2. MCP-Server als Microservices**
-Die Tools (`extract_structured_data`, `generate_python_automation`, `estimate_automation_roi` etc.) leben in **eigenständigen MCP-Servern**, nicht im Agent-Code. Kommunikation über das Model Context Protocol (JSON-RPC 2.0 über stdio). Vorteil: Tools können versioniert, ausgetauscht oder neugestartet werden, ohne die Agenten neu zu deployen — exakt das Prinzip, das Enterprise-Plattformen wie UiPath, KNIME und Dify mit MCP/A2A verfolgen.
+Die Tools (`extract_structured_data`, `generate_python_automation`, `estimate_automation_roi` etc.) leben in **eigenständigen MCP-Servern**, nicht im Agent-Code. Kommunikation über das Model Context Protocol (JSON-RPC 2.0 über stdio). Vorteil: Tools können versioniert, ausgetauscht oder neugestartet werden, ohne die Agenten neu zu deployen, exakt das Prinzip, das Enterprise-Plattformen wie UiPath, KNIME und Dify mit MCP/A2A verfolgen.
 
 **3. State-Checkpointing (SQLite)**
 Der gemeinsame State wird nach **jedem** Node in SQLite gecheckpointet. Ein abgestürzter Durchlauf überlebt und kann mit derselben Session-ID wieder aufgenommen werden. Das ist der Unterschied zwischen einem Prototyp und einem produktionstauglichen System.
 
 **4. Circuit Breaker**
-Ein Iterations-Zähler im State verhindert Endlosschleifen zwischen Supervisor und Workern — eine praktische Notwendigkeit bei zyklischen Agent-Graphen.
+Ein Iterations-Zähler im State verhindert Endlosschleifen zwischen Supervisor und Workern. Eine praktische Notwendigkeit bei zyklischen Agent-Graphen.
 
 ## 🛠 Tech Stack
 
